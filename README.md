@@ -6,8 +6,20 @@ This repository contains Python scripts for computing synchrotron emission prope
 
 ## Files
 
-- **synchrotron_pdf.py**: Main script that loads simulation data, initializes MPI processes, and computes various synchrotron emission properties such as Stokes parameters, Faraday depth, and polarization intensities.
-- **synchrotron.py**: Contains helper functions and the `Synchrotron` class, which includes methods for setting up MPI communicators, creating shared memory windows, and computing necessary physical parameters.
+- **synchrotron_pdf.py**: This script is responsible for orchestrating the synchrotron emission calculations by:
+  - Initializing MPI communicators and setting up the computational grid.
+  - Loading simulation data and distributing it efficiently across multiple processors.
+  - Computing synchrotron emission properties, such as Stokes parameters (I, Q, U), Faraday depth, and polarization intensities.
+  - Generating output files with probability density functions (PDFs) and integral scale calculations.
+  
+- **synchrotron.py**: This module provides essential functions and classes to handle parallel computations and synchrotron emission calculations efficiently. It includes:
+  - `create_grid_beam`: Sets up a structured Cartesian topology of MPI processes in up to three dimensions and assigns separate communicators for parallel computing.
+  - `create_mem_window`: Implements shared memory windows for efficient data sharing among MPI processes without redundant copies, optimizing RAM usage.
+  - `sum_beam`: A helper function that sums data along a specified beam direction using MPI reduction operations.
+  - `Synchrotron` Class: Handles core physical computations related to synchrotron emission. It includes methods to:
+    - Set global class variables such as electron density exponent, frequency, and magnetic field scaling.
+    - Compute Stokes parameters (I, Q, U) based on magnetic field configurations and plasma density.
+    - Calculate Faraday depth and polarization properties for given lines of sight.
 
 ## Dependencies
 
@@ -30,7 +42,7 @@ Ensure you have the following Python libraries installed:
 
 ## Functionality
 
-### synchrotron\_pdf.py
+### synchrotron_pdf.py
 
 - Initializes MPI processes and assigns computational tasks.
 - Loads simulation data and distributes it across processes.
@@ -48,6 +60,7 @@ Ensure you have the following Python libraries installed:
 - Defines `Synchrotron` class for physical computations.
 - Implements MPI functions for efficient parallel processing.
 - Provides utilities for data sharing across processors.
+- Handles grid creation, memory optimization, and collective data operations.
 
 ## Output
 
