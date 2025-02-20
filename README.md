@@ -64,5 +64,5 @@ This project is open-source. Feel free to use and modify it as needed.
 
 ## Author
 
-Developed by NaveenJingade. For questions, contact naveenjingade@gmail.com.
+Developed by Naveen Jingade. For questions, contact naveenjingade@gmail.com.
 
