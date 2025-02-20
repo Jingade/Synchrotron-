@@ -6,7 +6,7 @@ This repository contains Python scripts for computing synchrotron emission prope
 
 ## Files
 
--**synchrotron_pdf.py**: Main script that loads simulation data, initializes MPI processes, and computes various synchrotron emission properties such as Stokes parameters, Faraday depth, and polarization intensities.
+- **synchrotron_pdf.py**: Main script that loads simulation data, initializes MPI processes, and computes various synchrotron emission properties such as Stokes parameters, Faraday depth, and polarization intensities.
 - **synchrotron.py**: Contains helper functions and the `Synchrotron` class, which includes methods for setting up MPI communicators, creating shared memory windows, and computing necessary physical parameters.
 
 ## Dependencies
