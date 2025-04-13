@@ -77,5 +77,5 @@ This project is open-source. Feel free to use and modify it as needed.
 
 ## Author
 
-Developed independently by Naveen Jingade at IIA, Bangalore. For questions, contact naveenjingade@gmail.com.
+Developed by Naveen Jingade at IIA, Bangalore. For questions, contact naveenjingade@gmail.com.
 
