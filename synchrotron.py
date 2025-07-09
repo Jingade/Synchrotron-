@@ -236,10 +236,15 @@ class Synchrotron:
         l = FD.shape[1]
 
         """
-        Numpy array uses Fortran arrays at the core. In fortran, columns are loaded on to 
-        the cache first. By explicitly loading the columns first and then ordering the 
-        for loops makes the code cache efficient. 
-        """
+        By default, NumPy arrays use a C-like memory layout, where the last indices (typically rows)
+	are stored in contiguous memory locations. This means that accessing these last indices first 
+        allows them to be efficiently loaded into the cache. Therefore, it’s good practice to iterate 
+	over the outer loops using the slower-changing indices, while accessing the rows (or last indices) 
+        in the inner loops for better cache performance. To check whether a NumPy array (say FD) has a 
+	C-contiguous memory layout, you can use the command FD.flags['C_CONTIGUOUS'], which returns True 
+        if the array follows the C-style layout."""
+
+	    
         FD_ds = np.zeros(l, dtype = 'd')
         chi_ds = np.zeros(l, dtype = 'd')
         Jomega = np.zeros(l, dtype = 'd')
